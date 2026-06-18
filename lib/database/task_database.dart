@@ -42,4 +42,12 @@ class TaskDao {
 
     await saveTasks(tasks);
   }
+
+  Future<void> updateTask(int index, Task updatedTask) async {
+    List<Task> tasks = await getTasks();
+
+    tasks[index] = updatedTask;
+
+    await saveTasks(tasks);
+  }
 }
