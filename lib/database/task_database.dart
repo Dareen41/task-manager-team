@@ -50,4 +50,20 @@ class TaskDao {
 
     await saveTasks(tasks);
   }
+
+  Future<void> deleteTask(int index) async {
+    List<Task> tasks = await getTasks();
+
+    tasks.removeAt(index);
+
+    await saveTasks(tasks);
+  }
+
+  Future<void> toggleTaskStatus(int index) async {
+    List<Task> tasks = await getTasks();
+
+    tasks[index].isCompleted = !tasks[index].isCompleted;
+
+    await saveTasks(tasks);
+  }
 }
